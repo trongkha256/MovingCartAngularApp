@@ -10,6 +10,8 @@ import { DataBindingComponent } from './data-binding/data-binding.component';
 import { FormsModule } from '@angular/forms';
 import { StructuralDirectivesComponent } from './structural-directives/structural-directives.component';
 import { AttributeDirectivesComponent } from './attribute-directives/attribute-directives.component';
+import { BtProductManagementModule } from './bt-product-management/bt-product-management.module';
+import { InteractionModule } from './interaction/interaction.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { AttributeDirectivesComponent } from './attribute-directives/attribute-d
     BrowserModule,
     FormsModule,
     HomeModule,
-    ProductsModule
+    ProductsModule,
+    BtProductManagementModule,
+    InteractionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

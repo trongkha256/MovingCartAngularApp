@@ -20,7 +20,7 @@ import { LapItemComponent } from './lap-item/lap-item.component';
     PhoneListComponent,
     PhoneItemComponent,
     LapListComponent,
-    LapItemComponent
+    LapItemComponent,
   ],
   imports: [
     CommonModule,
