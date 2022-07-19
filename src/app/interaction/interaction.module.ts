@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { InteractionComponent } from './interaction.component';
 import { UserComponent } from './user/user.component';
 import { MovieComponent } from './movie/movie.component';
+import { ToggleComponent } from './toggle/toggle.component';
 
 
 
@@ -11,7 +12,8 @@ import { MovieComponent } from './movie/movie.component';
     InteractionComponent,
     UserComponent,
     UserComponent,
-    MovieComponent
+    MovieComponent,
+    ToggleComponent
   ],
   imports: [
     CommonModule

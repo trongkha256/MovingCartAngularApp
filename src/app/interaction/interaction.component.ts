@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewChildren, QueryList } from '@angular/core';
+import { ToggleComponent } from './toggle/toggle.component';
 
 @Component({
   selector: 'app-interaction',
@@ -17,11 +18,44 @@ import { Component, OnInit } from '@angular/core';
         </div>
       </div>
     </div>
+    <h1 class="text-center">Custom two-way binding</h1>
+    <div class="toggle">
+      <!-- <app-toggle [isActive]="isActive" (changeIsActive)="handleToggle($event)"></app-toggle>
+      Áp dụng two-way
+    -->
+    <app-toggle [(isActive)]="isActive" #toggle></app-toggle>
+
+    <h1>ViewChild</h1>
+    <button (click)="toggle.handleToggle()" >Hihi Change</button>
+    <button (click)="handleToggle()" >Hihi Change class</button>
+    <br />
+    <h1>ViewChildren</h1>
+    <app-toggle></app-toggle>
+    <app-toggle></app-toggle>
+    <app-toggle></app-toggle>
+    <button (click)="handleToggle()">Toggle</button>
+
+
+
+    </div>
+
   `,
   styles: [
+    `
+      .toggle{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+
+      }
+    `
   ]
 })
 export class InteractionComponent implements OnInit {
+  @ViewChild('toggle') toggleComp!: ToggleComponent;
+  @ViewChildren(ToggleComponent) toggleComps!: QueryList<ToggleComponent>
+  isActive = true;
   user = {
     name: 'HJIHI',
     age: 28
@@ -55,6 +89,14 @@ export class InteractionComponent implements OnInit {
   }
   handleDelete(movieId: number) {
     this.movies = this.movies.filter((movie) => movie.maPhim != movieId)
+  }
+  // handleToggle(status: boolean) {
+  //   console.log(status)
+  // }
+  handleToggle() {
+    this.toggleComps.forEach((item) => {
+      item.handleToggle();
+    });
   }
 
 }
